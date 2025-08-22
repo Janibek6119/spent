@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tailwindcss-primeui";
 
 @utility flex-center {
   @apply flex items-center justify-center;
