@@ -11,3 +11,13 @@
 @theme {
   --color-temp: #FF0000;
 }
+
+html:not(.dark) {
+  background: #dddddd;
+  color: #333333
+}
+
+html.dark {
+  background: #333333;
+  color: #dddddd;
+}
