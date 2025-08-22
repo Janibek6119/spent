@@ -1,6 +1,9 @@
 <template>
   <div class="flex min-h-screen flex-col">
     <BigHello class="flex-center" />
+    <PButton class="mx-auto mt-8 w-fit" severity="secondary" @click="toggleDarkMode">
+      Toggle Dark Mode: {{ layoutStore.darkMode }}
+    </PButton>
     <PButton
       class="mx-auto mt-8 w-fit"
       severity="info"
@@ -38,5 +41,11 @@ const onSubmitFake = () => {
     });
     count.value = 0;
   }, 1000);
+};
+
+const layoutStore = useLayoutStore();
+
+const toggleDarkMode = () => {
+  layoutStore.darkMode = !layoutStore.darkMode;
 };
 </script>
