@@ -24,6 +24,13 @@
 </template>
 
 <script setup lang="ts">
+const layoutStore = useLayoutStore();
+useHead({
+  htmlAttrs: {
+    class: layoutStore.darkMode ? "dark" : "",
+  },
+});
+
 const count = ref(0);
 const loading = ref(false);
 const toast = useToast();
@@ -42,8 +49,6 @@ const onSubmitFake = () => {
     count.value = 0;
   }, 1000);
 };
-
-const layoutStore = useLayoutStore();
 
 const toggleDarkMode = () => {
   layoutStore.darkMode = !layoutStore.darkMode;
