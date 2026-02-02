@@ -13,18 +13,19 @@
   },
   "dependencies": {
     "@pinia/nuxt": "0.11.3",
-    "@primeuix/themes": "1.2.3",
+    "@primeuix/themes": "2.0.3",
     "@tailwindcss/vite": "4.1.18",
     "nuxt": "4.3.0",
     "pinia": "3.0.4",
     "pinia-plugin-persistedstate": "4.7.1",
-    "primevue": "4.3.7",
+    "primeicons": "7.0.0",
+    "primevue": "4.5.4",
     "tailwindcss": "4.1.18",
     "tailwindcss-primeui": "0.6.1"
   },
   "devDependencies": {
     "@nuxt/eslint": "1.13.0",
-    "@primevue/nuxt-module": "4.3.7",
+    "@primevue/nuxt-module": "4.5.4",
     "@types/node": "24",
     "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",
