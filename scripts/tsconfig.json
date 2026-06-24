@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": "..",
+    "module": "preserve",
+    "moduleResolution": "Bundler",
+    "target": "ESNext",
+    "esModuleInterop": true,
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true
+  },
+  "include": ["./**/*.ts"]
+}
