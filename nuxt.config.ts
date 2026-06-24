@@ -3,11 +3,14 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxt/eslint", "@primevue/nuxt-module", "@pinia/nuxt", "pinia-plugin-persistedstate/nuxt"],
+  modules: ["@nuxt/eslint", "@primevue/nuxt-module", "@pinia/nuxt", "@vueuse/nuxt", "pinia-plugin-persistedstate/nuxt"],
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ["@primevue/core/api"],
+    },
   },
   css: ["~~/app/assets/css/main.css"],
   primevue: {
