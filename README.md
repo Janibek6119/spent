@@ -16,4 +16,3 @@ Usage: `pnpm tsx scripts/example.ts`
 Removal:
 - [scripts](./scripts) dir
 - `tsx` package in [package.json](./package.json)
-- `{ "path": "./scripts/tsconfig.json" }` in [tsconfig.json](./tsconfig.json)

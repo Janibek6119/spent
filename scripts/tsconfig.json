@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
     "composite": true,
-    "rootDir": "..",
     "module": "preserve",
     "moduleResolution": "Bundler",
     "target": "ESNext",
+    "lib": ["ESNext"],
+    "types": ["node"],
     "esModuleInterop": true,
     "strict": true,
     "noEmit": true,
