@@ -27,7 +27,7 @@
   "devDependencies": {
     "@nuxt/eslint": "1.16.0",
     "@primevue/nuxt-module": "4.5.5",
-    "@types/node": "24",
+    "@types/node": "catalog:",
     "eslint": "10.5.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-better-tailwindcss": "4.6.0",
@@ -40,5 +40,5 @@
     "vue-eslint-parser": "10.4.1",
     "vue-tsc": "3.3.5"
   },
-  "packageManager": "pnpm@11.8.0"
+  "packageManager": "pnpm@11.9.0"
 }
