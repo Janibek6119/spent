@@ -61,3 +61,10 @@ export default defineI18nConfig(() => ({
     es: extractVocabulary(MERGED, "es"),
   } satisfies { [key in Locale]: ExtractedVocab<typeof MERGED> },
 }));
+
+/**
+ * Schema of the vocab to help the message key typecheck.
+ *
+ * See [Explanation](./EXPLANATION.md) for why we merge this.
+ */
+export type MessageSchema = ExtractedVocab<typeof MERGED>;

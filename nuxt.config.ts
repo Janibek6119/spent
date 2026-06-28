@@ -23,9 +23,9 @@ export default defineNuxtConfig({
       useCookie: true,
       cookieKey: "i18n_locale",
     },
-    experimental: {
-      typedOptionsAndMessages: "default",
-    },
+    // DO NOT do this while having that vue-i18n patch:
+    // experimental: { typedOptionsAndMessages: "default" },
+    // See i18n/EXPLANATION.md
   },
   vite: {
     plugins: [tailwindcss()],
