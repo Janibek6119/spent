@@ -1,5 +1,26 @@
 {
-  "name": "nuxt-app",
+  "name": "spent",
+  "license": "AGPL-3.0-only",
+  "version": "0.1.0",
+  "description": "Spent — offline expense tracker with multi-tagging and analytics.",
+  "author": {
+    "name": "Eldar Malyshov",
+    "email": "eldar.malyshov@gmail.com",
+    "url": "https://github.com/janibek6119"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janibek6119/spent"
+  },
+  "homepage": "https://github.com/janibek6119/spent#readme",
+  "bugs": {
+    "url": "https://github.com/janibek6119/spent/issues"
+  },
+  "keywords": [
+    "finance",
+    "budget",
+    "tracker"
+  ],
   "type": "module",
   "private": true,
   "scripts": {

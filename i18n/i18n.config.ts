@@ -1,40 +1,14 @@
 import { DEFAULT_LOCALE, type Locale, LOCALES } from "./const";
 
 const MERGED = {
-  _thisLanguage: ["🇬🇧 English", "🇪🇸 Español"],
-  clickMe: ["Click me x{count}", "Haz clic en mí x{count}"],
-  hello: ["Hello", "Hola"],
-  about: ["About", "Acerca de"],
-  toggleDarkMode: ["Toggle Dark Mode", "Alternar modo oscuro"],
-  home: ["Home", "Inicio"],
-  username: ["Username", "Nombre de usuario"],
-  password: ["Password", "Contraseña"],
-  dataSubmittedSuccessfully: ["Data submitted successfully: {count}", "Datos enviados con éxito: {count}"],
   common: {
-    empty: ["Empty", "Vacío"],
-    hidePassword: ["Hide password", "Ocultar contraseña"],
-    showPassword: ["Show password", "Mostrar contraseña"],
-    hold: ["Hold", "Mantener"],
-    submit: ["Submit", "Enviar"],
-    usernamePlaceholder: ["Enter your username", "Ingrese su nombre de usuario"],
-    passwordPlaceholder: ["Enter your password", "Ingrese su contraseña"],
-  },
-  currencies: {
-    name: ["Currency", "Moneda"],
-    ticker: ["Ticker", "Símbolo"],
-    USD: ["US Dollar", "Dólar estadounidense"],
-    EUR: ["Euro", "Euro"],
-    JPY: ["Japanese Yen", "Yen japonés"],
-    GBP: ["British Pound", "Libra esterlina"],
-    AUD: ["Australian Dollar", "Dólar australiano"],
-    CAD: ["Canadian Dollar", "Dólar canadiense"],
-    CHF: ["Swiss Franc", "Franco suizo"],
-    CNY: ["Chinese Yuan", "Yuan chino"],
-    SEK: ["Swedish Krona", "Corona sueca"],
-    NZD: ["New Zealand Dollar", "Dólar neozelandés"],
+    empty: ["Empty"],
+    hidePassword: ["Hide password"],
+    showPassword: ["Show password"],
+    hold: ["Hold"],
   },
 } as const satisfies GeneralMergedVocabType;
-type MergedVocabLeaf = [string, string]; // TODO what will you do when there are 20 languages?
+type MergedVocabLeaf = [string]; // TODO what will you do when there are 20 languages?
 
 type GeneralMergedVocabType = {
   [x: string]: MergedVocabLeaf | GeneralMergedVocabType;
@@ -58,7 +32,6 @@ export default defineI18nConfig(() => ({
   fallbackWarn: false,
   messages: {
     en: extractVocabulary(MERGED, "en"),
-    es: extractVocabulary(MERGED, "es"),
   } satisfies { [key in Locale]: ExtractedVocab<typeof MERGED> },
 }));
 
