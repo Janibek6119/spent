@@ -23,7 +23,8 @@
   }
 
   --animate-spin: spin 2s linear infinite;
-  --color-temp: #ff0000;
+  --color-danger: var(--p-red-500);
+  --color-warn: var(--p-orange-500);
 
   --radius: 4px;
   --radius-1: calc(var(--radius) * 1);

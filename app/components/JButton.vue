@@ -4,6 +4,9 @@
     class="j-button"
     :class="{
       'j-button--default': theme === 'default',
+      'j-button--default-outlined': theme === 'default-outlined',
+      'j-button--warn': theme === 'warn',
+      'j-button--warn-outlined': theme === 'warn-outlined',
       'j-button--reversed': iconPos === 'right',
       'j-button--disabled': disabled || (VISIBLY_DISABLED_WHEN_LOADING && loading),
       'j-button--loading': loading,
@@ -25,6 +28,9 @@
     class="j-button"
     :class="{
       'j-button--default': theme === 'default',
+      'j-button--default-outlined': theme === 'default-outlined',
+      'j-button--warn': theme === 'warn',
+      'j-button--warn-outlined': theme === 'warn-outlined',
       'j-button--reversed': iconPos === 'right',
       'j-button--disabled': disabled || (VISIBLY_DISABLED_WHEN_LOADING && loading),
       'j-button--loading': loading,
@@ -51,7 +57,7 @@ export type JButtonProps = {
   label?: string;
   icon?: (typeof PrimeIcons)[keyof typeof PrimeIcons];
   disabled?: boolean;
-  theme?: null | "default";
+  theme?: null | "default" | "default-outlined" | "warn" | "warn-outlined";
   to?: string;
   iconPos?: "left" | "right";
   type?: "submit" | "reset" | "button";
@@ -82,14 +88,20 @@ const onClick = (e: PointerEvent) => {
 };
 </script>
 
-<style scoped>
+<style>
 @reference "~/assets/css/main.css";
+:root {
+  --j-button-tint: black;
+}
+.dark {
+  --j-button-tint: white;
+}
 @layer components {
   .j-button {
     @apply flex-center rounded-2 touch-none items-center gap-2 select-none;
     padding: 8px 12px;
     font-weight: 600;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
   .j-button.j-button--disabled {
     cursor: default;
@@ -110,14 +122,41 @@ const onClick = (e: PointerEvent) => {
     aspect-ratio: 1/1;
   }
   .j-button.j-button--default {
-    background-color: var(--color-temp);
-    color: white;
+    @apply bg-danger text-white;
   }
   .j-button.j-button--default:not(.j-button--loading):hover {
-    background-color: color-mix(in srgb, var(--color-temp), black 15%);
+    background-color: color-mix(in srgb, var(--color-danger), var(--j-button-tint) 15%);
   }
   .j-button.j-button--default:not(.j-button--loading):active {
-    background-color: color-mix(in srgb, var(--color-temp), black 30%);
+    background-color: color-mix(in srgb, var(--color-danger), var(--j-button-tint) 30%);
+  }
+  .j-button.j-button--default-outlined {
+    @apply text-danger border-danger/30 dark:border-danger/70 border bg-transparent;
+  }
+  .j-button.j-button--default-outlined:not(.j-button--loading):hover {
+    @apply bg-danger/10;
+  }
+  .j-button.j-button--default-outlined:not(.j-button--loading):active {
+    @apply bg-danger/20;
+  }
+
+  .j-button.j-button--warn {
+    @apply bg-warn text-white;
+  }
+  .j-button.j-button--warn:not(.j-button--loading):hover {
+    background-color: color-mix(in srgb, var(--color-warn), var(--j-button-tint) 15%);
+  }
+  .j-button.j-button--warn:not(.j-button--loading):active {
+    background-color: color-mix(in srgb, var(--color-warn), var(--j-button-tint) 30%);
+  }
+  .j-button.j-button--warn-outlined {
+    @apply text-warn border-warn/30 dark:border-warn/70 border bg-transparent;
+  }
+  .j-button.j-button--warn-outlined:not(.j-button--loading):hover {
+    @apply bg-warn/10;
+  }
+  .j-button.j-button--warn-outlined:not(.j-button--loading):active {
+    @apply bg-warn/20;
   }
 }
 </style>

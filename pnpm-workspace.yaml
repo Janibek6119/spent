@@ -11,3 +11,6 @@ catalog:
 
 patchedDependencies:
   vue-i18n: patches/vue-i18n.patch
+
+minimumReleaseAgeExclude:
+  - prettier@3.9.1

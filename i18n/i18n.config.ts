@@ -8,7 +8,7 @@ const MERGED = {
     hold: ["Hold"],
   },
 } as const satisfies GeneralMergedVocabType;
-type MergedVocabLeaf = [string]; // TODO what will you do when there are 20 languages?
+type MergedVocabLeaf = [string]; // TODO make vocab leafs scalable
 
 type GeneralMergedVocabType = {
   [x: string]: MergedVocabLeaf | GeneralMergedVocabType;

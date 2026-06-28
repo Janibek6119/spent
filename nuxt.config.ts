@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   ],
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
+  ssr: false,
   i18n: {
     vueI18n: "i18n.config.ts",
     strategy: "no_prefix",
@@ -30,10 +31,13 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      include: ["@primevue/core/api"],
+      include: ["@primevue/core/api", "date-fns", "dexie", "zod"],
     },
   },
   css: ["~~/app/assets/css/main.css"],
+  nitro: {
+    preset: "github_pages",
+  },
   primevue: {
     components: {
       prefix: "P",

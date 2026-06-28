@@ -3,6 +3,9 @@
     <NuxtPage />
   </NuxtLayout>
   <PToast />
+  <DialogCreateTag />
+  <DialogExpense />
+  <DialogTagStats />
 </template>
 
 <script setup lang="ts">
@@ -12,4 +15,7 @@ useHead({
     class: layoutStore.darkMode ? "dark" : "",
   },
 });
+
+const mainStore = useMainStore();
+await mainStore.fetchTags();
 </script>
