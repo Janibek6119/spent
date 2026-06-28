@@ -38,16 +38,6 @@
   --radius-10: calc(var(--radius) * 10);
 }
 
-html:not(.dark) {
-  background: #dddddd;
-  color: #333333;
-}
-
-html.dark {
-  background: #333333;
-  color: #dddddd;
-}
-
 @layer base {
   button,
   a {

@@ -206,18 +206,34 @@ function onBlur() {
   }
 
   .j-input__label {
-    @apply mb-2 truncate text-gray-500;
+    @apply mb-2 truncate;
+    color: var(--p-form-field-float-label-color);
   }
 
   .j-input__box {
-    @apply flex-center rounded-2 overflow-hidden border border-gray-500 bg-white;
+    @apply flex-center rounded-2 overflow-hidden;
+    transition-duration: var(--p-form-field-transition-duration);
+    border: 1px solid var(--p-form-field-border-color);
+    background: var(--p-form-field-background);
+  }
+  .j-input__box:hover {
+    border-color: var(--p-form-field-hover-border-color);
+  }
+  .j-input__box:focus-within {
+    border-color: var(--p-form-field-focus-border-color);
   }
 
   .j-input__input {
-    @apply grow text-black caret-black placeholder:text-gray-400;
+    @apply grow;
+    background: var(--p-form-field-background);
+    color: currentColor;
+    caret-color: var(--p-form-field-color);
     min-width: 0;
     outline: none;
     padding: 8.5px 16px;
+  }
+  .j-input__input::placeholder {
+    color: var(--p-form-field-placeholder-color);
   }
   .j-input__box.j-input__box--actions > .j-input__input {
     @apply pr-0;
@@ -228,27 +244,29 @@ function onBlur() {
   }
 
   .j-input__toggle {
-    @apply size-9.5 text-gray-300;
+    @apply size-9.5;
+    color: var(--p-form-field-icon-color);
   }
 
   .j-input__message {
-    @apply mt-1 truncate text-xs text-gray-500;
+    @apply mt-1 truncate text-xs;
+    color: var(--p-text-muted-color);
   }
 
   .j-input.j-input--invalid > .j-input__box {
-    @apply border-red-500;
+    border-color: var(--p-form-field-invalid-border-color);
   }
 
   .j-input.j-input--invalid > .j-input__box > .j-input__input {
-    @apply text-red-500;
+    color: var(--p-form-field-invalid-color);
   }
 
   .j-input.j-input--invalid > .j-input__box > .j-input__input::placeholder {
-    @apply text-red-500 opacity-50;
+    color: var(--p-form-field-invalid-placeholder-color);
   }
 
   .j-input.j-input--invalid > .j-input__message {
-    @apply text-red-500;
+    color: var(--p-form-field-invalid-color);
   }
 }
 </style>

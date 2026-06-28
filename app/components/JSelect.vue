@@ -10,7 +10,7 @@
         <button
           :id="triggerId"
           type="button"
-          class="j-select__trigger"
+          class="j-select__box"
           :disabled="disabled"
           :aria-expanded="isOpen"
           :aria-haspopup="'listbox'"
@@ -20,7 +20,7 @@
           <span class="j-select__value" :class="{ 'j-select__value--placeholder': !hasValue }">
             {{ displayValue }}
           </span>
-          <i class="j-select__icon" :class="[PrimeIcons.CHEVRON_DOWN, { 'j-select__icon--open': isOpen }]" />
+          <i class="j-select__icon" :class="PrimeIcons.CHEVRON_DOWN" />
         </button>
         <Transition name="j-select-overlay">
           <div v-if="isOpen" class="j-select__overlay">
@@ -111,7 +111,7 @@ onBeforeUnmount(() => document.removeEventListener("keydown", onKeydown));
   }
 
   label {
-    @apply text-gray-500;
+    color: var(--p-form-field-float-label-color);
   }
 
   .j-select__container {
@@ -122,11 +122,23 @@ onBeforeUnmount(() => document.removeEventListener("keydown", onKeydown));
     position: relative;
   }
 
-  .j-select__trigger {
-    @apply flex-stream rounded-2 w-full gap-4 border border-gray-500 bg-white text-black;
+  .j-select__box {
+    @apply flex-stream rounded-2 w-full gap-4;
+    background: var(--p-form-field-background);
+    border: 1px solid var(--p-form-field-border-color);
+    color: var(--p-form-field-color);
+    transition-duration: var(--p-form-field-transition-duration);
     cursor: pointer;
     outline: none;
     padding: 8.5px 16px;
+  }
+
+  .j-select__box:hover {
+    border-color: var(--p-form-field-hover-border-color);
+  }
+
+  .j-select__box:focus {
+    border-color: var(--p-form-field-focus-border-color);
   }
 
   .j-select__value {
@@ -136,20 +148,20 @@ onBeforeUnmount(() => document.removeEventListener("keydown", onKeydown));
   }
 
   .j-select__value.j-select__value--placeholder {
-    @apply text-gray-400;
+    color: var(--p-form-field-placeholder-color);
   }
 
   .j-select__icon {
-    @apply shrink-0 text-gray-300;
+    @apply shrink-0;
+    color: var(--p-form-field-icon-color);
     transition: transform 0.2s ease;
   }
 
-  .j-select__icon.j-select__icon--open {
-    @apply rotate-180;
-  }
-
   .j-select__overlay {
-    @apply rounded-2 absolute left-0 z-1 w-full border border-gray-500 bg-white shadow-md;
+    @apply rounded-2 absolute left-0 z-1 w-full shadow-md;
+    background: var(--p-select-overlay-background);
+    color: var(--p-select-overlay-color);
+    border: 1px solid var(--p-select-overlay-border-color);
     top: calc(100% + 4px);
     overflow: hidden;
   }
@@ -162,52 +174,58 @@ onBeforeUnmount(() => document.removeEventListener("keydown", onKeydown));
   }
 
   .j-select__option {
-    @apply rounded-1 shrink-0 text-black;
+    @apply rounded-1 shrink-0;
+    background: var(--p-select-option-background);
+    color: var(--p-select-option-color);
     cursor: pointer;
     padding: 8px 16px;
     transition: background-color 0.2s ease;
   }
 
   .j-select__option:hover {
-    @apply bg-gray-200;
-  }
-
-  .j-select__option:active {
-    @apply bg-gray-200;
+    background: var(--p-select-option-focus-background);
+    color: var(--p-select-option-focus-color);
   }
 
   .j-select__option.j-select__option--selected {
-    @apply bg-gray-200;
+    background: var(--p-select-option-selected-background);
+    color: var(--p-select-option-selected-color);
+  }
+  .j-select__option.j-select__option--selected:hover {
+    background: var(--p-select-option-selected-focus-background);
+    color: var(--p-select-option-selected-focus-color);
   }
 
-  .j-select__field.j-select__field--open > .j-select__trigger {
-    @apply border-black;
+  .j-select__field.j-select__field--open > .j-select__box {
+    border-color: var(--p-form-field-focus-border-color);
   }
 
-  .j-select__field.j-select__field--disabled > .j-select__trigger {
+  .j-select__field.j-select__field--disabled > .j-select__box {
+    color: var(--p-form-field-disabled-color);
     cursor: default;
     opacity: 0.6;
   }
 
   .j-select__message {
-    @apply text-gray-500;
+    color: var(--p-text-muted-color);
     font-size: 12px;
     line-height: 16px;
   }
 
-  .j-select__container.j-select__container--invalid > .j-select__field > .j-select__trigger {
-    @apply border-red-500 text-red-500;
+  .j-select__container.j-select__container--invalid > .j-select__field > .j-select__box {
+    /* @apply border-red-500 text-red-500; */
+    border-color: var(--p-form-field-invalid-border-color);
   }
 
   .j-select__container.j-select__container--invalid
     > .j-select__field
-    > .j-select__trigger
+    > .j-select__box
     > .j-select__value--placeholder {
-    @apply text-red-500 opacity-50;
+    color: var(--p-form-field-invalid-placeholder-color);
   }
 
   .j-select__container.j-select__container--invalid > .j-select__message {
-    @apply text-red-500;
+    color: var(--p-form-field-float-label-invalid-color);
   }
 
   .j-select-overlay-enter-active,
