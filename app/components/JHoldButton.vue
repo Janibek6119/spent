@@ -50,21 +50,13 @@
 
 <script setup lang="ts">
 import { PrimeIcons } from "@primevue/core/api";
-import type { JButtonTheme } from "~/components/JButton.vue";
+import type { JButtonProps } from "~/components/JButton.vue";
 
 const emit = defineEmits<{
   (e: "click"): void;
 }>();
 
-const props = defineProps<{
-  label?: string;
-  loading?: boolean;
-  disabled?: boolean;
-  theme?: JButtonTheme;
-  iconPos?: "left" | "right";
-  type?: "submit" | "reset" | "button";
-  icon?: (typeof PrimeIcons)[keyof typeof PrimeIcons];
-}>();
+const props = defineProps<JButtonProps>();
 
 const trulyDisabled = computed(() => props.disabled || props.loading);
 watch(trulyDisabled, (nowDisabled) => {

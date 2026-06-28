@@ -47,30 +47,30 @@
 <script setup lang="ts">
 import { PrimeIcons } from "@primevue/core/api";
 const VISIBLY_DISABLED_WHEN_LOADING = false;
-export type JButtonTheme = "default";
-const props = withDefaults(
-  defineProps<{
-    label?: string;
-    icon?: string;
-    disabled?: boolean;
-    theme?: JButtonTheme | null;
-    to?: string;
-    iconPos?: "left" | "right";
-    type?: "submit" | "reset" | "button";
-    loading?: boolean;
-    symmetric?: boolean;
-    rounded?: boolean;
-  }>(),
-  {
-    label: undefined,
-    icon: undefined,
-    theme: "default",
-    to: undefined,
-    iconPos: "left",
-    type: "button",
-    symmetric: undefined,
-  },
-);
+export type JButtonProps = {
+  label?: string;
+  icon?: (typeof PrimeIcons)[keyof typeof PrimeIcons];
+  disabled?: boolean;
+  theme?: null | "default";
+  to?: string;
+  iconPos?: "left" | "right";
+  type?: "submit" | "reset" | "button";
+  loading?: boolean;
+  /**
+   * @default true // IF NO LABEL PRESENT
+   */
+  symmetric?: boolean;
+  rounded?: boolean;
+};
+const props = withDefaults(defineProps<JButtonProps>(), {
+  label: undefined,
+  icon: undefined,
+  theme: "default",
+  to: undefined,
+  iconPos: "left",
+  type: "button",
+  symmetric: undefined, // keep it, otherwise it becomes `false`
+});
 
 const emit = defineEmits<{
   (e: "click", event: PointerEvent): void;
