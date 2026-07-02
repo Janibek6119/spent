@@ -178,6 +178,13 @@ const submit = async () => {
 const tagContextMenu = ref<InstanceType<typeof ContextMenu>>();
 const tagContextMenuItems = ref<MenuItem[]>([
   {
+    label: "Rename",
+    icon: PrimeIcons.PENCIL,
+    command: () => {
+      dialogsStore.renameTag = tagContextMenuObject.value!;
+    },
+  },
+  {
     label: "Delete",
     icon: PrimeIcons.TRASH,
     disabled: () => mainStore.tagIsInUse_cached(tagContextMenuObject.value!.id),

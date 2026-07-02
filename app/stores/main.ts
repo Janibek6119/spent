@@ -103,6 +103,22 @@ export const useMainStore = defineStore("main", () => {
   /**
    * Optimistic
    */
+  const renameTag = async (id: number, name: string): Promise<void> => {
+    const tag = tags.value.find((t) => t.id === id);
+    if (!tag) throw new Error(`Tag id ${id} not found to rename`);
+    const previousName = tag.name;
+    tag.name = name;
+    try {
+      await _db.tags.where("id").equals(id).modify({ name });
+    } catch (error) {
+      tag.name = previousName;
+      throw error;
+    }
+  };
+
+  /**
+   * Optimistic
+   */
   const deleteTag = async (id: number, policy: "cascade" | "restrict" = "restrict"): Promise<void> => {
     const index = tags.value.findIndex((t) => t.id === id);
     if (index === -1) throw new Error(`Tag id ${id} not found to delete`);
@@ -218,6 +234,7 @@ export const useMainStore = defineStore("main", () => {
     expensesFlat: expensesWithTags,
     fetchTags,
     createTag,
+    renameTag,
     deleteTag,
     tagIsInUse,
     tagIsInUse_cached,

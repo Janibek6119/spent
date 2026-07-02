@@ -4,6 +4,7 @@
   </NuxtLayout>
   <PToast />
   <DialogCreateTag />
+  <DialogRenameTag />
   <DialogExpense />
   <DialogTagStats />
 </template>
