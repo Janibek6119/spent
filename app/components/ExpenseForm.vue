@@ -49,6 +49,7 @@
         placeholder="0.00"
         :min-fraction-digits="2"
         :max-fraction-digits="2"
+        autocomplete="off"
         fluid
         :min="0"
       />
