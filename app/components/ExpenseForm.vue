@@ -49,7 +49,13 @@
         placeholder="0.00"
         :min-fraction-digits="2"
         :max-fraction-digits="2"
-        autocomplete="off"
+        :pt="{
+          pcInputText: {
+            root: {
+              autocomplete: 'off',
+            },
+          },
+        }"
         fluid
         :min="0"
       />
